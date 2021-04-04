@@ -115,8 +115,8 @@ refs.lightboxOverlay.addEventListener('click', onCloseModal)
 
 function onOpenModal (e){
   window.addEventListener('keydown',onEscapePress);
-  window.addEventListener('keydown',onLEFTKeyPress);
-  window.addEventListener('keydown',onRIGHTKeyPress);
+  // window.addEventListener('keydown',onLEFTKeyPress);
+  // window.addEventListener('keydown',onRIGHTKeyPress);
   e.preventDefault();
   
   if(e.target.nodeName === 'IMG') {
@@ -144,19 +144,19 @@ function onEscapePress (e){
  }
 };
 
-function onRIGHTKeyPress (e){
-  const RIGHT_KEY_CODE = 'ArrowRight';
-  if(e.code === RIGHT_KEY_CODE){
-    refs.lightboxOverlay.style.backgroundColor = "#AA0000";
-    // refs.lightboxImage.style.marginRight = right + 160 + "px";
-  }
- };
+// function onRIGHTKeyPress (e){
+//   const RIGHT_KEY_CODE = 'ArrowRight';
+//   if(e.code === RIGHT_KEY_CODE){
+//     refs.lightboxOverlay.style.backgroundColor = "#AA0000";
+//     // refs.lightboxImage.style.marginRight = right + 160 + "px";
+//   }
+//  };
 
- function onLEFTKeyPress (e){
-  const LEFT_KEY_CODE = 'ArrowLeft';
-  if(e.code === LEFT_KEY_CODE){
-    refs.lightboxOverlay.style.backgroundColor = "#ccc";
-    // refs.lightboxImage.style.marginLeft = left + 60 + "px";
-  }
- };
+//  function onLEFTKeyPress (e){
+//   const LEFT_KEY_CODE = 'ArrowLeft';
+//   if(e.code === LEFT_KEY_CODE){
+//     refs.lightboxOverlay.style.backgroundColor = "#ccc";
+//     // refs.lightboxImage.style.marginLeft = left + 60 + "px";
+//   }
+//  };
 

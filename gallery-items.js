@@ -72,7 +72,7 @@ const gallery = [
 
 
 function createGalleryMarkup(gallery) {
-return gallery.map(({preview, original, description}) => {
+return gallery.map(({original, description}) => {
 return `
   <li class="gallery__item">
       <a class="gallery__link"

@@ -67,6 +67,7 @@ const gallery = [
   const galleryContainer = document.querySelector('.js-gallery');
   const galleryMarkup = createGalleryMarkup(gallery);
 
+
   galleryContainer.insertAdjacentHTML('beforeend', galleryMarkup);
   // galleryContainer.addEventListener('click', onGalleryContainerClick);
 
@@ -114,10 +115,11 @@ refs.closeModalBtn.addEventListener('click', onCloseModal);
 refs.lightboxOverlay.addEventListener('click', onCloseModal)
 
 function onOpenModal (e){
+  e.preventDefault();
   window.addEventListener('keydown',onEscapePress);
+  window.addEventListener('keydown',onKeyPress);
   // window.addEventListener('keydown',onLEFTKeyPress);
   // window.addEventListener('keydown',onRIGHTKeyPress);
-  e.preventDefault();
   
   if(e.target.nodeName === 'IMG') {
     refs.lightbox.classList.add('is-open');
@@ -126,7 +128,6 @@ function onOpenModal (e){
   }
 };
 
-console.log(onOpenModal);
 
 function onCloseModal (e){
   window.removeEventListener('keydown',onEscapePress);
@@ -144,19 +145,44 @@ function onEscapePress (e){
  }
 };
 
-// function onRIGHTKeyPress (e){
+// let currentIndex = 1;
+// function onRIGHTKeyPress (e){;
 //   const RIGHT_KEY_CODE = 'ArrowRight';
 //   if(e.code === RIGHT_KEY_CODE){
-//     refs.lightboxOverlay.style.backgroundColor = "#AA0000";
-//     // refs.lightboxImage.style.marginRight = right + 160 + "px";
+//     currentIndex += 1;
+//     // refs.lightboxOverlay.style.backgroundColor = "#AA0000";
+//     setModalImage(currentIndex);
 //   }
 //  };
 
 //  function onLEFTKeyPress (e){
 //   const LEFT_KEY_CODE = 'ArrowLeft';
 //   if(e.code === LEFT_KEY_CODE){
-//     refs.lightboxOverlay.style.backgroundColor = "#ccc";
-//     // refs.lightboxImage.style.marginLeft = left + 60 + "px";
+//     currentIndex -= 1;
+//     // refs.lightboxOverlay.style.backgroundColor = "#ccc";
+//     setModalImage(currentIndex);
 //   }
 //  };
 
+// function setModalImage(index){
+//   console.log(gallery[index]);
+ 
+// }
+
+
+let currentIndex = 1;
+ function onKeyPress (e){
+  e.preventDefault();
+  if(e.code === 'ArrowLeft'){
+    currentIndex -= 1;
+  } else if (e.code === 'ArrowRight'){
+      currentIndex += 1;
+    }
+    setModalImage(currentIndex);
+  
+ };
+
+function setModalImage(index){
+  console.log(gallery[index]);
+ 
+}
